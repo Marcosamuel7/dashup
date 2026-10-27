@@ -1,0 +1,1225 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>DashUp | Painéis de BI para empresas</title>
+<meta name="description" content="Pare de fechar o mês na planilha. A DashUp monta painéis de BI para pequenas e médias empresas: vendas, caixa e meta no mesmo dashboard. Planos de R$ 300 a R$ 1.500, pagamento único.">
+<meta name="theme-color" content="#102820">
+<script>document.documentElement.classList.add("js")</script>
+<meta property="og:type" content="website">
+<meta property="og:locale" content="pt_BR">
+<meta property="og:title" content="DashUp | Painéis de BI para empresas">
+<meta property="og:description" content="Vendas, caixa e meta no mesmo painel. Planos de R$ 300 a R$ 1.500, pagamento único.">
+<!-- Troque SEU-DOMINIO pelo endereço real antes de publicar. A imagem deve ter 1200×630 px. -->
+<link rel="canonical" href="https://SEU-DOMINIO.com.br/">
+<meta property="og:url" content="https://SEU-DOMINIO.com.br/">
+<meta property="og:site_name" content="DashUp">
+<meta property="og:image" content="https://SEU-DOMINIO.com.br/og-image.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Painel de vendas da DashUp com meta, caixa e ticket médio">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%23102820'/%3E%3Crect x='7' y='16' width='4.5' height='9' rx='1.2' fill='%23F4F0E6'/%3E%3Crect x='13.75' y='11' width='4.5' height='14' rx='1.2' fill='%23F4F0E6'/%3E%3Crect x='20.5' y='6' width='4.5' height='19' rx='1.2' fill='%23E15A2A'/%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600;9..144,700&family=Outfit:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+<style>
+:root{
+  --paper:#f4f0e6;
+  --card:#fffcf7;
+  --ink:#17342d;
+  --pine:#1d4038;
+  --pine-deep:#102820;
+  --coral:#e15a2a;
+  --primary:#b84316;
+  --muted:#4d6159;
+  --line:rgba(23,52,45,.12);
+  --line-strong:rgba(23,52,45,.22);
+  --soft:#ebe5d6;
+  --mint:#dfe8e2;
+  --radius:18px;
+  --radius-sm:12px;
+  --shadow:0 1px 2px rgba(16,40,32,.06),0 12px 32px -12px rgba(16,40,32,.18);
+  --serif:"Fraunces",Georgia,"Times New Roman",serif;
+  --sans:"Outfit",system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;
+  --wrap:1160px;
+}
+*,*::before,*::after{box-sizing:border-box}
+html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}*{transition:none!important;animation:none!important}}
+body{margin:0;background:var(--paper);color:var(--ink);font:400 17px/1.6 var(--sans);-webkit-font-smoothing:antialiased;overflow-x:hidden}
+img,svg{display:block;max-width:100%}
+a{color:inherit}
+h1,h2,h3{font-family:var(--serif);font-weight:600;line-height:1.12;letter-spacing:-.01em;margin:0;color:var(--pine-deep)}
+h1{font-size:clamp(2.1rem,6.4vw,3.6rem)}
+h2{font-size:clamp(1.75rem,4.6vw,2.6rem)}
+h3{font-size:1.25rem}
+p{margin:0}
+.wrap{width:100%;max-width:var(--wrap);margin:0 auto;padding:0 16px}
+@media (min-width:768px){.wrap{padding:0 32px}}
+section{padding:72px 0;scroll-margin-top:68px}
+@media (min-width:960px){section{padding:104px 0}}
+.eyebrow{display:inline-block;font:600 .78rem/1 var(--sans);letter-spacing:.12em;text-transform:uppercase;color:var(--primary);margin-bottom:14px}
+.lead{font-size:1.1rem;color:var(--muted);max-width:60ch}
+.section-head{max-width:720px;margin-bottom:40px}
+.section-head .lead{margin-top:14px}
+.sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);border:0}
+:focus-visible{outline:3px solid var(--coral);outline-offset:3px;border-radius:6px}
+
+/* Botões */
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;min-height:52px;padding:0 24px;border-radius:999px;font:600 1rem/1 var(--sans);text-decoration:none;cursor:pointer;border:2px solid transparent;transition:background .2s,color .2s,border-color .2s,transform .2s}
+.btn:active{transform:translateY(1px)}
+.btn-cta{background:var(--primary);color:#fff}
+.btn-cta:hover{background:#9a3812}
+.btn-ghost{background:transparent;color:var(--pine-deep);border-color:var(--line-strong)}
+.btn-ghost:hover{border-color:var(--pine);background:var(--card)}
+.btn-dark{background:var(--pine-deep);color:var(--paper)}
+.btn-dark:hover{background:var(--pine)}
+.btn svg{width:20px;height:20px;flex:none}
+.btn-row{display:flex;flex-wrap:wrap;gap:12px}
+.btn-block{width:100%}
+
+/* Logo */
+.logo{display:inline-flex;align-items:center;gap:10px;min-height:44px;text-decoration:none;font:600 1.3rem/1 var(--sans);color:var(--pine-deep);letter-spacing:-.01em}
+.logo svg{width:34px;height:34px}
+
+/* Header */
+.site-header{position:sticky;top:0;z-index:50;background:rgba(244,240,230,.88);backdrop-filter:saturate(1.4) blur(10px);-webkit-backdrop-filter:saturate(1.4) blur(10px);border-bottom:1px solid transparent;transition:border-color .2s}
+.site-header.scrolled{border-bottom-color:var(--line)}
+.header-inner{display:flex;align-items:center;justify-content:space-between;height:68px;gap:16px}
+.main-nav{display:none}
+.main-nav a{text-decoration:none;color:var(--muted);font-weight:500;font-size:.95rem;padding:8px 2px}
+.main-nav a:hover{color:var(--pine-deep)}
+.header-cta{min-height:44px;padding:0 18px;font-size:.92rem}
+@media (min-width:960px){.main-nav{display:flex;gap:26px}}
+@media (max-width:959px){.header-cta{display:none}}
+
+/* Selo ilustrativo */
+.tag-ill{display:inline-flex;align-items:center;gap:6px;font:500 .75rem/1 var(--sans);color:var(--muted);background:var(--paper);border:1px solid var(--line);padding:6px 10px;border-radius:999px;white-space:nowrap}
+.tag-ill::before{content:"";width:6px;height:6px;border-radius:50%;background:var(--coral)}
+
+/* Hero */
+.hero{padding:40px 0 72px}
+@media (min-width:960px){.hero{padding:72px 0 104px}}
+.hero-grid{display:grid;gap:48px;align-items:center}
+@media (min-width:1024px){.hero-grid{grid-template-columns:1.02fr 1fr;gap:56px}}
+.hero h1 em{font-style:italic;color:var(--primary);font-weight:600}
+.hero .lead{margin:22px 0 28px;font-size:1.15rem}
+.chips{display:flex;flex-wrap:wrap;gap:8px;margin-top:28px;padding:0;list-style:none}
+.chips li{display:inline-flex;align-items:center;gap:8px;background:var(--card);border:1px solid var(--line);padding:8px 14px;border-radius:999px;font-size:.88rem;font-weight:500;color:var(--pine)}
+.chips svg{width:16px;height:16px;color:var(--primary)}
+
+/* Mock de painel (genérico) */
+.mock{background:var(--card);border:1px solid var(--line);border-radius:var(--radius);box-shadow:var(--shadow);padding:18px;position:relative}
+.mock-top{display:flex;align-items:center;justify-content:space-between;gap:10px;margin-bottom:14px;flex-wrap:wrap}
+.mock-title{font-weight:600;font-size:.95rem;color:var(--pine-deep);display:flex;align-items:center;gap:8px}
+.mock-title small{font-weight:400;color:var(--muted);font-size:.8rem}
+.dots{display:flex;gap:5px}
+.dots i{width:8px;height:8px;border-radius:50%;background:var(--soft)}
+.kpis{display:grid;grid-template-columns:repeat(2,1fr);gap:10px}
+.mock{container-type:inline-size}
+@container (min-width:600px){.kpis.k4{grid-template-columns:repeat(4,1fr)}}
+.kpi{background:var(--paper);border-radius:var(--radius-sm);padding:12px}
+.kpi span{display:block;font-size:.75rem;color:var(--muted);font-weight:500;line-height:1.25}
+.kpi strong{display:block;font:600 1.15rem/1.2 var(--sans);color:var(--pine-deep);margin-top:6px;letter-spacing:-.01em}
+.kpi .delta{font-size:.75rem;font-weight:600;color:#2f7a55;margin-top:2px;display:block}
+.kpi .delta.down{color:var(--primary)}
+.kpi.dark{background:var(--pine-deep)}
+.kpi.dark span{color:#b9c9c1}
+.kpi.dark strong{color:var(--paper)}
+.mock-row{display:grid;gap:10px;margin-top:10px}
+@container (min-width:460px){.mock-row{grid-template-columns:1.6fr 1fr}}
+.panel{background:var(--paper);border-radius:var(--radius-sm);padding:12px}
+.panel h4{margin:0 0 10px;font:600 .78rem/1.2 var(--sans);color:var(--pine);display:flex;justify-content:space-between;gap:8px}
+.panel h4 small{font-weight:400;color:var(--muted);font-size:.75rem}
+.bars{display:flex;align-items:flex-end;gap:5px;height:120px;position:relative}
+.bars i{flex:1;background:var(--pine);border-radius:4px 4px 0 0;height:var(--h);min-width:4px;position:relative}
+.bars i.c{background:var(--coral)}
+.bars i.l{background:#9db3a8}
+.bars .goal{position:absolute;left:0;right:0;bottom:var(--g);border-top:2px dashed var(--coral);opacity:.8}
+.bars-x{display:flex;gap:5px;margin-top:6px}
+.bars-x span{flex:1;text-align:center;font-size:.75rem;color:var(--muted);letter-spacing:-.02em}
+.ring{width:96px;height:96px;margin:4px auto 8px;position:relative}
+.ring svg{width:100%;height:100%;transform:rotate(-90deg)}
+.ring b{position:absolute;inset:0;display:grid;place-items:center;font:600 1.2rem/1 var(--sans);color:var(--pine-deep)}
+.ring-cap{text-align:center;font-size:.75rem;color:var(--muted);line-height:1.35}
+.list{list-style:none;margin:0;padding:0;display:grid;gap:8px}
+.list li{display:grid;grid-template-columns:1fr auto;gap:4px 8px;font-size:.78rem;align-items:center}
+.list li .bar{grid-column:1 / -1;height:6px;background:var(--soft);border-radius:4px;overflow:hidden}
+.list li .bar i{display:block;height:100%;width:var(--w);background:var(--pine);border-radius:4px}
+.list li .bar i.c{background:var(--coral)}
+.list b{font-weight:600}
+.mock-foot{margin-top:12px;display:flex;justify-content:flex-end}
+
+/* Benefícios */
+.grid-4{display:grid;gap:16px}
+@media (min-width:640px){.grid-4{grid-template-columns:repeat(2,1fr)}}
+@media (min-width:1024px){.grid-4{grid-template-columns:repeat(4,1fr)}}
+.card{background:var(--card);border:1px solid var(--line);border-radius:var(--radius);padding:26px}
+.icon{width:46px;height:46px;border-radius:12px;background:var(--mint);display:grid;place-items:center;color:var(--pine);margin-bottom:18px}
+.icon svg{width:24px;height:24px}
+.card h3{margin-bottom:10px}
+.card p{color:var(--muted);font-size:.98rem}
+
+/* Projeto real */
+.dark-sec{background:var(--pine-deep);color:#dfe7e2}
+.dark-sec h2,.dark-sec h3{color:var(--paper)}
+.dark-sec .lead{color:#b9c9c1}
+.dark-sec .eyebrow{color:#f08a63}
+.case-grid{display:grid;gap:40px;align-items:start}
+@media (min-width:1024px){.case-grid{grid-template-columns:.85fr 1.15fr;gap:56px}}
+.case-points{list-style:none;padding:0;margin:28px 0 0;display:grid;gap:16px}
+.case-points li{display:grid;grid-template-columns:28px 1fr;gap:12px}
+.case-points li span{width:28px;height:28px;border-radius:50%;background:rgba(244,240,230,.1);color:var(--paper);display:grid;place-items:center;font-weight:600;font-size:.85rem}
+.case-points b{color:var(--paper);font-weight:600}
+.case-note{margin-top:24px;font-size:.88rem;color:#9fb3a9}
+.funnel{display:grid;gap:6px}
+.funnel div{display:grid;grid-template-columns:96px 1fr auto;gap:10px;align-items:center;font-size:.78rem}
+.funnel div i{height:22px;border-radius:5px;background:var(--pine);width:var(--w)}
+.funnel div:last-child i{background:var(--coral)}
+.funnel b{font-weight:600;min-width:36px;text-align:right}
+.sim-tabs{display:inline-flex;background:var(--paper);border-radius:999px;padding:4px;gap:2px;flex-wrap:wrap}
+.sim-tabs button{border:0;background:transparent;font:500 .82rem/1 var(--sans);color:var(--muted);min-height:44px;padding:0 14px;border-radius:999px;cursor:pointer}
+.sim-tabs button[aria-pressed="true"]{background:var(--pine-deep);color:var(--paper)}
+.sim-out{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin-top:12px}
+.sim-out div{background:var(--card);border-radius:10px;padding:10px}
+.sim-out span{display:block;font-size:.75rem;color:var(--muted);line-height:1.25}
+.sim-out strong{display:block;font:600 1.05rem/1.2 var(--sans);color:var(--pine-deep);margin-top:4px}
+.progress{height:10px;background:var(--soft);border-radius:6px;overflow:hidden;margin-top:12px;position:relative}
+.progress i{display:block;height:100%;width:var(--w);background:var(--pine);border-radius:6px;transition:width .4s}
+.progress i.c{background:var(--coral)}
+
+/* Carrossel */
+.carousel{position:relative}
+.track{display:grid;grid-auto-flow:column;grid-auto-columns:88%;gap:16px;overflow-x:auto;scroll-snap-type:x mandatory;scroll-padding:0 16px;padding:4px 16px 12px;margin:0 -16px;scrollbar-width:none;overscroll-behavior-x:contain}
+.track::-webkit-scrollbar{display:none}
+.track > *{scroll-snap-align:start}
+@media (min-width:640px){.track{grid-auto-columns:calc(50% - 8px);margin:0;padding:4px 0 12px;scroll-padding:0}}
+@media (min-width:1024px){.track{grid-auto-columns:calc(33.333% - 11px)}}
+.car-nav{display:flex;gap:10px;justify-content:flex-end;margin-top:20px}
+.car-nav button{width:48px;height:48px;border-radius:50%;border:1px solid var(--line-strong);background:var(--card);color:var(--pine-deep);cursor:pointer;display:grid;place-items:center;transition:background .2s,border-color .2s}
+.car-nav button:hover{border-color:var(--pine)}
+.car-nav button:disabled{opacity:.35;cursor:default}
+.car-nav svg{width:20px;height:20px}
+.head-row{display:flex;flex-wrap:wrap;align-items:flex-end;justify-content:space-between;gap:20px;margin-bottom:36px}
+.head-row .section-head{margin-bottom:0}
+
+/* Depoimentos */
+.quote{background:var(--card);border:1px solid var(--line);border-radius:var(--radius);padding:28px;display:flex;flex-direction:column;gap:22px;height:100%}
+.quote blockquote{margin:0;font:500 1.12rem/1.5 var(--serif);color:var(--pine-deep)}
+.quote blockquote::before{content:"“";display:block;font-size:3rem;line-height:.6;color:var(--coral);margin-bottom:10px}
+.who{display:flex;align-items:center;gap:12px;margin-top:auto}
+.avatar{width:44px;height:44px;border-radius:50%;background:var(--pine);color:var(--paper);display:grid;place-items:center;font-weight:600;flex:none}
+.who b{display:block;font-weight:600;color:var(--pine-deep)}
+.who span{font-size:.88rem;color:var(--muted)}
+
+/* Como funciona */
+.steps{list-style:none;padding:0;margin:0;display:grid;gap:14px;counter-reset:s}
+@media (min-width:768px){.steps{grid-template-columns:repeat(2,1fr)}}
+@media (min-width:1100px){.steps{grid-template-columns:repeat(5,1fr)}}
+.steps li{counter-increment:s;background:var(--card);border:1px solid var(--line);border-radius:var(--radius);padding:24px;position:relative}
+.steps li::before{content:counter(s);display:grid;place-items:center;width:38px;height:38px;border-radius:50%;background:var(--pine-deep);color:var(--paper);font:600 1rem/1 var(--sans);margin-bottom:16px}
+.steps li:last-child::before{background:var(--coral)}
+.steps h3{font-size:1.1rem;margin-bottom:8px}
+.steps p{color:var(--muted);font-size:.95rem}
+.steps-note{margin-top:20px;font-size:.92rem;color:var(--muted)}
+
+/* Tipos de painel */
+.grid-3{display:grid;gap:16px}
+@media (min-width:640px){.grid-3{grid-template-columns:repeat(2,1fr)}}
+@media (min-width:1024px){.grid-3{grid-template-columns:repeat(3,1fr)}}
+.type{display:flex;flex-direction:column}
+.type .kpi-tags{list-style:none;padding:0;margin:14px 0 20px;display:flex;flex-wrap:wrap;gap:6px}
+.type .kpi-tags li{font-size:.8rem;background:var(--paper);border:1px solid var(--line);padding:5px 10px;border-radius:999px;color:var(--pine)}
+.type .plan-hint{margin-top:auto;padding-top:16px;border-top:1px dashed var(--line-strong);font-size:.88rem;color:var(--muted)}
+.type .plan-hint b{color:var(--primary);font-weight:600}
+
+/* Confiança */
+.trust{display:grid;gap:16px}
+@media (min-width:900px){.trust{grid-template-columns:repeat(3,1fr)}}
+.trust .card{padding:30px}
+.flow{list-style:none;padding:0;margin:14px 0 0;display:grid;gap:10px}
+.flow li{display:grid;grid-template-columns:22px 1fr;gap:10px;font-size:.95rem;color:var(--muted)}
+.flow li::before{content:"";width:10px;height:10px;margin:7px 0 0 6px;border-radius:50%;border:2px solid var(--pine)}
+.flow li:last-child::before{background:var(--coral);border-color:var(--coral)}
+
+/* Planos */
+.plans{display:grid;gap:16px;align-items:stretch;scroll-margin-top:96px}
+@media (min-width:700px){.plans{grid-template-columns:repeat(2,1fr)}}
+@media (min-width:1140px){.plans{grid-template-columns:repeat(4,1fr)}}
+.plan{background:var(--card);border:1px solid var(--line);border-radius:var(--radius);padding:24px 20px;display:flex;flex-direction:column;position:relative}
+.plan.featured{border:2px solid var(--coral);box-shadow:var(--shadow)}
+.plan .badge{position:absolute;top:-13px;left:24px;background:var(--primary);color:#fff;font:600 .75rem/1 var(--sans);padding:7px 12px;border-radius:999px;letter-spacing:.04em}
+.plan h3{font-size:1.18rem}
+.plan .desc{color:var(--muted);font-size:.88rem;line-height:1.45;margin-top:6px}
+.price{margin:14px 0 2px;font:600 2.1rem/1 var(--serif);color:var(--pine-deep);letter-spacing:-.02em}
+.price small{font:500 1rem/1 var(--sans);color:var(--muted);margin-right:4px}
+.price-note{font-size:.82rem;color:var(--muted)}
+.plan ul{list-style:none;padding:0;margin:16px 0 14px;display:grid;gap:7px}
+.plan li{display:grid;grid-template-columns:18px 1fr;gap:8px;font-size:.89rem;line-height:1.4}
+.plan li.extra{display:none}
+.plan ul.open li.extra{display:grid}
+.more{align-self:flex-start;background:none;border:0;padding:4px 0;margin:0 0 16px;font:600 .86rem/1.2 var(--sans);color:var(--primary);cursor:pointer;text-decoration:underline;text-underline-offset:3px}
+.plan li svg{width:16px;height:16px;margin-top:3px;color:var(--pine)}
+.plan .btn{margin-top:auto;padding:0 14px;font-size:.93rem;white-space:nowrap}
+.calc{margin-top:24px;display:grid;gap:22px;align-items:center;background:var(--pine-deep);color:#b9c9c1;border-radius:var(--radius);padding:28px 22px}
+@media (min-width:960px){.calc{grid-template-columns:1.1fr 1.2fr .9fr;gap:32px;padding:32px 36px}}
+.calc h3{color:var(--paper);font-size:1.3rem;margin-bottom:8px}
+.calc p{font-size:.93rem}
+.calc-form{display:grid;gap:14px}
+.calc label{display:grid;gap:6px;font-size:.85rem;color:#dfe7e2}
+.calc input{width:100%;min-height:48px;border-radius:10px;border:1px solid rgba(244,240,230,.25);background:rgba(244,240,230,.08);color:var(--paper);font:600 1.05rem/1 var(--sans);padding:0 14px}
+.calc input:focus{outline:2px solid var(--coral);outline-offset:1px;border-color:transparent}
+.calc-out{background:rgba(244,240,230,.08);border-radius:var(--radius-sm);padding:18px}
+.calc-out span{font-size:.85rem}
+.calc-out strong{display:block;font:600 2rem/1.1 var(--serif);color:var(--paper);margin:4px 0 8px}
+.calc-out small{font-size:.82rem;line-height:1.45;display:block}
+.calc-link{display:inline-flex;align-items:center;min-height:44px;margin-top:4px;color:var(--paper);font-weight:600;font-size:.92rem;text-underline-offset:3px}
+.see-model{display:flex;align-items:center;justify-content:center;min-height:44px;font-size:.88rem;font-weight:500;color:var(--primary);margin:-4px 0 8px;text-decoration:underline;text-underline-offset:3px}
+.pronto{display:grid;gap:40px;align-items:center;margin-top:64px;padding:32px 20px;background:var(--card);border:1px solid var(--line);border-radius:24px;scroll-margin-top:84px}
+@media (min-width:768px){.pronto{padding:48px}}
+@media (min-width:1024px){.pronto{grid-template-columns:1fr 1fr;gap:48px}}
+.pronto .mock{box-shadow:none;background:var(--paper)}
+.pronto .mock .kpi,.pronto .mock .panel{background:var(--card)}
+.pronto .mock .kpi.dark{background:var(--pine-deep)}
+.pronto-title{font-size:clamp(1.5rem,3.6vw,2rem)}
+.fit{display:grid;gap:20px;margin-top:24px}
+@media (min-width:560px){.fit{grid-template-columns:1fr 1fr}}
+.fit h4{margin:0 0 10px;font:600 .95rem/1.2 var(--sans);color:var(--pine-deep)}
+.fit ul{list-style:none;padding:0;margin:0;display:grid;gap:8px}
+.fit li{position:relative;padding-left:22px;font-size:.93rem;color:var(--muted)}
+.fit li::before{content:"✓";position:absolute;left:0;color:var(--pine);font-weight:700}
+.fit ul.no li::before{content:"×";color:var(--primary);font-size:1.1rem;line-height:1.3}
+.fit-alt{font-size:.88rem;color:var(--muted);margin-top:12px}
+.fit-alt a{color:var(--primary);font-weight:600;display:inline-block;padding:12px 0;margin:-12px 0}
+.not-incl{font-size:.82rem;color:var(--muted);margin:-8px 0 22px;padding-top:14px;border-top:1px dashed var(--line-strong)}
+.plan li.inherit{display:block;font-weight:600;color:var(--pine-deep);font-size:.9rem;padding-bottom:2px}
+.plans-note b{color:var(--pine-deep);font-weight:600}
+.plans-note{margin-top:24px;text-align:center;color:var(--muted);font-size:.93rem}
+
+/* Modelos por negócio */
+.model{background:var(--card);border:1px solid var(--line);border-radius:var(--radius);padding:20px;display:flex;flex-direction:column;gap:14px;height:100%}
+.model header{display:flex;justify-content:space-between;align-items:center;gap:8px}
+.model h3{font-size:1.15rem}
+.model .bars{height:90px}
+.model .kpis{grid-template-columns:repeat(3,1fr);gap:6px}
+.model .kpi{padding:9px}
+.model .kpi strong{font-size:.95rem}
+.model .kpi span{font-size:.72rem}
+
+/* FAQ */
+.faq-grid{display:grid;gap:40px}
+@media (min-width:1024px){.faq-grid{grid-template-columns:.75fr 1.25fr;gap:64px}}
+.faq{display:grid;gap:10px}
+.faq details{background:var(--card);border:1px solid var(--line);border-radius:var(--radius-sm);padding:0 20px}
+.faq summary{list-style:none;cursor:pointer;padding:18px 0;font-weight:600;color:var(--pine-deep);display:flex;justify-content:space-between;gap:16px;align-items:center}
+.faq summary::-webkit-details-marker{display:none}
+.faq summary::after{content:"";flex:none;width:12px;height:12px;border-right:2px solid var(--pine);border-bottom:2px solid var(--pine);transform:rotate(45deg) translate(-3px,-3px);transition:transform .2s}
+.faq details[open] summary::after{transform:rotate(-135deg) translate(-3px,-3px)}
+.faq details p{padding:0 0 20px;color:var(--muted);font-size:.98rem}
+
+/* CTA final */
+.final{background:var(--pine-deep);color:#dfe7e2;border-radius:28px;padding:56px 24px;text-align:center;position:relative;overflow:hidden}
+@media (min-width:768px){.final{padding:80px 48px}}
+.final h2{color:var(--paper);max-width:18ch;margin:0 auto}
+.final p{max-width:52ch;margin:18px auto 30px;color:#b9c9c1}
+.final .btn-row{justify-content:center}
+.final .btn-ghost{color:var(--paper);border-color:rgba(244,240,230,.35)}
+.final .btn-ghost:hover{background:rgba(244,240,230,.08);border-color:var(--paper)}
+.final-bars{position:absolute;right:-10px;bottom:-10px;display:flex;align-items:flex-end;gap:10px;opacity:.12}
+.final-bars i{width:34px;background:var(--paper);border-radius:6px 6px 0 0}
+.final-bars i:last-child{background:var(--coral);opacity:1}
+
+/* Footer */
+.site-footer{padding:48px 0 96px;border-top:1px solid var(--line);margin-top:72px}
+@media (min-width:768px){.site-footer{padding-bottom:48px}}
+.footer-inner{display:flex;flex-wrap:wrap;justify-content:space-between;gap:20px;align-items:center}
+.site-footer p{font-size:.88rem;color:var(--muted)}
+
+/* WhatsApp flutuante (mobile) */
+/* Menu mobile */
+.header-actions{display:flex;align-items:center;gap:8px}
+.menu-btn{width:44px;height:44px;border-radius:50%;border:1px solid var(--line-strong);background:transparent;color:var(--pine-deep);display:grid;place-items:center;cursor:pointer}
+.menu-btn svg{width:20px;height:20px}
+@media (min-width:960px){.menu-btn{display:none}}
+@media (max-width:959px){
+  .main-nav.open{display:flex;flex-direction:column;position:absolute;top:68px;left:0;right:0;background:var(--paper);padding:8px 16px 18px;border-bottom:1px solid var(--line);box-shadow:0 18px 30px -20px rgba(16,40,32,.35)}
+  .main-nav.open a{padding:14px 4px;font-size:1.05rem;border-bottom:1px solid var(--line)}
+  .main-nav.open a:last-child{border-bottom:0}
+}
+.main-nav a[aria-current="true"]{color:var(--pine-deep);box-shadow:inset 0 -2px 0 var(--coral)}
+
+/* Movimento ao rolar (só com JS; respeita reduced motion) */
+.js .rv{opacity:0;transform:translateY(18px);transition:opacity .6s ease,transform .6s cubic-bezier(.2,.7,.2,1);transition-delay:var(--d,0s)}
+.js .rv.in{opacity:1;transform:none}
+.js .rv .bars i{transform:scaleY(.05);transform-origin:bottom;transition:transform .8s cubic-bezier(.2,.7,.2,1) .15s}
+.js .rv.in .bars i{transform:none}
+.js .rv .list .bar i,.js .rv .funnel i{transform:scaleX(0);transform-origin:left;transition:transform .8s cubic-bezier(.2,.7,.2,1) .2s}
+.js .rv.in .list .bar i,.js .rv.in .funnel i{transform:none}
+@media (prefers-reduced-motion:reduce){.js .rv,.js .rv .bars i,.js .rv .list .bar i,.js .rv .funnel i{opacity:1;transform:none}}
+.card,.plan,.quote,.model{transition:transform .2s,box-shadow .2s,border-color .2s}
+@media (hover:hover){.card:hover,.plan:hover,.model:hover{transform:translateY(-3px);box-shadow:var(--shadow)}}
+
+/* Progresso do carrossel */
+.car-nav{justify-content:space-between;align-items:center}
+.car-status{flex:1;display:flex;align-items:center;gap:14px;max-width:320px}
+.car-count{font-size:.85rem;font-weight:500;color:var(--muted);white-space:nowrap;font-variant-numeric:tabular-nums}
+.car-progress{flex:1;max-width:240px;height:6px;background:var(--soft);border-radius:4px;overflow:hidden}
+.car-progress i{display:block;height:100%;width:var(--p,30%);background:var(--pine);border-radius:4px;transition:width .2s}
+.car-btns{display:flex;gap:10px}
+@media (hover:hover) and (pointer:fine){.track{cursor:grab}}
+.track.dragging{cursor:grabbing;scroll-snap-type:none;scroll-behavior:auto;user-select:none}
+
+/* Barra fixa de compra (mobile) */
+.mbar{position:fixed;left:0;right:0;bottom:0;z-index:60;display:flex;gap:10px;padding:10px 16px calc(10px + env(safe-area-inset-bottom));background:rgba(255,252,247,.96);backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px);border-top:1px solid var(--line);transform:translateY(110%);transition:transform .25s}
+.mbar.show{transform:none}
+.mbar .btn{min-height:48px;font-size:.95rem}
+.mbar .btn-cta{flex:1}
+.mbar .btn-wa{width:52px;padding:0;background:var(--pine-deep);color:var(--paper)}
+@media (min-width:960px){.mbar{display:none}}
+
+/* Microcopy de CTA e guia de planos */
+.cta-note{font-size:.88rem;color:var(--muted);margin-top:14px;max-width:54ch;line-height:1.7}
+.cta-note b{color:var(--pine-deep);font-weight:600}
+.cta-note a{color:var(--primary);font-weight:600;text-underline-offset:3px;display:inline-block;padding:12px 4px;margin:-12px -4px}
+.dark-sec .btn-row{margin-top:28px}
+.picker{display:grid;gap:10px;margin-bottom:36px;padding:0;list-style:none}
+@media (min-width:900px){.picker{grid-template-columns:repeat(3,1fr)}}
+.picker li{background:var(--mint);border-radius:var(--radius-sm);padding:16px 18px;font-size:.95rem;color:var(--pine)}
+.picker b{display:block;color:var(--pine-deep);font-weight:600;margin-top:4px}
+.picker.receive{margin:24px 0 0}
+.receive li{font-weight:600;color:var(--pine-deep)}
+.receive b{font-weight:400;color:var(--pine)}
+</style>
+</head>
+<body>
+
+<!-- Ícones reutilizados -->
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <symbol id="i-check" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" d="M5 12.5l4.2 4.2L19 7"/></symbol>
+  <symbol id="i-wa" viewBox="0 0 24 24"><path fill="currentColor" d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2zm0 18.2a8.2 8.2 0 0 1-4.2-1.1l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1 1 12 20.2zm4.5-6.1c-.2-.1-1.5-.7-1.7-.8-.2-.1-.4-.1-.6.1l-.8 1c-.1.2-.3.2-.5.1a6.7 6.7 0 0 1-3.3-2.9c-.2-.4.2-.4.7-1.3.1-.2 0-.3 0-.4l-.8-1.8c-.2-.5-.4-.4-.6-.4h-.5a1 1 0 0 0-.7.3 3 3 0 0 0-.9 2.2 5.2 5.2 0 0 0 1.1 2.7 11.8 11.8 0 0 0 4.5 4c1.7.7 2.3.8 3.2.6.5-.1 1.5-.6 1.7-1.2.2-.6.2-1.1.2-1.2-.1-.1-.3-.2-.5-.3z"/></symbol>
+  <symbol id="i-arrow" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="M5 12h14M13 6l6 6-6 6"/></symbol>
+  <symbol id="i-left" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="M15 6l-6 6 6 6"/></symbol>
+  <symbol id="i-right" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="M9 6l6 6-6 6"/></symbol>
+  <symbol id="logo" viewBox="0 0 32 32"><rect width="32" height="32" rx="7" fill="#102820"/><rect x="7" y="16" width="4.5" height="9" rx="1.2" fill="#F4F0E6"/><rect x="13.75" y="11" width="4.5" height="14" rx="1.2" fill="#F4F0E6"/><rect x="20.5" y="6" width="4.5" height="19" rx="1.2" fill="#E15A2A"/></symbol>
+</svg>
+
+<header class="site-header" id="topo">
+  <div class="wrap header-inner">
+    <a class="logo" href="#topo" aria-label="DashUp, início"><svg aria-hidden="true"><use href="#logo"/></svg>DashUp</a>
+    <nav class="main-nav" id="menu" aria-label="Principal">
+      <a href="#beneficios">Benefícios</a>
+      <a href="#como-funciona">Como funciona</a>
+      <a href="#tipos">Painéis</a>
+      <a href="#escolha-plano">Planos</a>
+      <a href="#faq">Dúvidas</a>
+    </nav>
+    <div class="header-actions">
+      <a class="btn btn-cta header-cta" href="#escolha-plano">Ver planos</a>
+      <button class="menu-btn" type="button" aria-label="Abrir menu" aria-expanded="false" aria-controls="menu"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16"/></svg></button>
+    </div>
+  </div>
+</header>
+
+<main>
+
+<!-- 1. HERO -->
+<section class="hero">
+  <div class="wrap hero-grid">
+    <div>
+      <span class="eyebrow">Painéis de BI para PMEs</span>
+      <h1>Pare de fechar o mês na planilha. <em>Veja vendas, caixa e meta no mesmo painel.</em></h1>
+      <p class="lead">Planos de R$ 300 a R$ 1.500, pagamento único. Nos personalizados, você combina prazo e escopo com a gente no WhatsApp antes de pagar.</p>
+      <div class="btn-row">
+        <a class="btn btn-cta" href="#modelo-pronto">Ver o painel de R$ 300 <svg aria-hidden="true"><use href="#i-arrow"/></svg></a>
+        <a class="btn btn-ghost" data-wa="Oi! Vi o site da DashUp e quero entender qual painel faz sentido pra minha empresa." href="#escolha-plano"><svg aria-hidden="true"><use href="#i-wa"/></svg>Falar no WhatsApp</a>
+      </div>
+      <p class="cta-note"><b>R$ 300:</b> painel de vendas feito com os seus dados, pronto em até 2 dias.<br><b>Caixa e indicadores da sua empresa:</b> plano Personalizado, R$ 500.</p>
+      <ul class="chips" aria-label="Condições">
+        <li><svg aria-hidden="true"><use href="#i-check"/></svg>Planos de R$ 300 a R$ 1.500</li>
+        <li><svg aria-hidden="true"><use href="#i-check"/></svg>Pix ou cartão no Mercado Pago</li>
+        <li><svg aria-hidden="true"><use href="#i-check"/></svg>Garantia de 7 dias após a entrega</li>
+      </ul>
+    </div>
+
+    <figure class="mock" style="margin:0" aria-label="Exemplo de painel comercial com números fictícios">
+      <div class="mock-top">
+        <div class="mock-title">Painel comercial <small>· Outubro</small></div>
+        <span class="tag-ill">Modelo ilustrativo · números fictícios</span>
+      </div>
+      <div class="kpis k4">
+        <div class="kpi dark"><span>Vendas no mês</span><strong>R$ 184,2 mil</strong></div>
+        <div class="kpi"><span>Meta atingida</span><strong>87%</strong><span class="delta">faltam R$ 27,8 mil</span></div>
+        <div class="kpi"><span>Caixa hoje</span><strong>R$ 61,9 mil</strong><span class="delta">+ R$ 8,4 mil na semana</span></div>
+        <div class="kpi"><span>Ticket médio</span><strong>R$ 1.240</strong><span class="delta down">− 3% vs. set.</span></div>
+      </div>
+      <div class="mock-row">
+        <div class="panel">
+          <h4>Vendas por mês <small>— meta</small></h4>
+          <div class="bars" style="--g:72%">
+            <i class="l" style="--h:48%"></i><i class="l" style="--h:55%"></i><i class="l" style="--h:51%"></i><i class="l" style="--h:63%"></i><i class="l" style="--h:58%"></i><i class="l" style="--h:69%"></i><i class="l" style="--h:66%"></i><i class="l" style="--h:74%"></i><i class="l" style="--h:71%"></i><i style="--h:80%"></i><i class="c" style="--h:63%"></i>
+            <span class="goal"></span>
+          </div>
+          <div class="bars-x"><span>dez</span><span>jan</span><span>fev</span><span>mar</span><span>abr</span><span>mai</span><span>jun</span><span>jul</span><span>ago</span><span>set</span><span>out</span></div>
+        </div>
+        <div class="panel">
+          <h4>Meta do mês</h4>
+          <div class="ring" aria-hidden="true">
+            <svg viewBox="0 0 36 36"><circle cx="18" cy="18" r="15.9" fill="none" stroke="#ebe5d6" stroke-width="3.6"/><circle cx="18" cy="18" r="15.9" fill="none" stroke="#e15a2a" stroke-width="3.6" stroke-linecap="round" stroke-dasharray="87 100"/></svg>
+            <b>87%</b>
+          </div>
+          <p class="ring-cap">R$ 184,2 mil de R$ 212 mil<br>5 dias úteis restantes</p>
+        </div>
+      </div>
+      <div class="panel" style="margin-top:10px">
+        <h4>Vendedores <small>% da meta individual</small></h4>
+        <ul class="list">
+          <li>Vendedor A <b>104%</b><span class="bar"><i style="--w:100%"></i></span></li>
+          <li>Vendedor B <b>91%</b><span class="bar"><i style="--w:91%"></i></span></li>
+          <li>Vendedor C <b>68%</b><span class="bar"><i class="c" style="--w:68%"></i></span></li>
+        </ul>
+      </div>
+    </figure>
+  </div>
+</section>
+
+<!-- 2. BENEFÍCIOS -->
+<section id="beneficios" style="padding-top:0">
+  <div class="wrap">
+    <div class="section-head">
+      <span class="eyebrow">O que muda no dia a dia</span>
+      <h2>Menos tempo montando relatório. Mais tempo olhando pro número certo.</h2>
+    </div>
+    <div class="grid-4">
+      <article class="card">
+        <div class="icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="4" y="3" width="16" height="18" rx="2"/><path d="M8 8h8M8 12h8M8 16h5"/></svg></div>
+        <h3>Fecha o mês sem caçar planilha</h3>
+        <p>Os dados que hoje estão espalhados em várias abas e arquivos vão pra um lugar só. Você abre o painel e o fechamento já está ali.</p>
+      </article>
+      <article class="card">
+        <div class="icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg></div>
+        <h3>Vê o resultado a tempo</h3>
+        <p>Dá pra perceber no dia 15 que a meta está atrasada, e não no dia 5 do mês seguinte, quando já não tem mais o que fazer.</p>
+      </article>
+      <article class="card">
+        <div class="icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 20V10M10 20V4M16 20v-7M22 20H2"/></svg></div>
+        <h3>Decide com número</h3>
+        <p>Qual produto vende mais, qual cliente atrasa, quanto sobra no caixa. A conversa com sócio e equipe sai do “eu acho” e vai pro que está na tela.</p>
+      </article>
+      <article class="card">
+        <div class="icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="9" cy="8" r="3"/><circle cx="17" cy="9" r="2.5"/><path d="M3 20c0-3.3 2.7-6 6-6s6 2.7 6 6M15 14.5c3 0 6 1.8 6 5.5"/></svg></div>
+        <h3>Uma versão só pra todo mundo</h3>
+        <p>Acabou o “qual planilha é a certa?”. Dono, financeiro e comercial olham o mesmo número, com a mesma regra de cálculo.</p>
+      </article>
+    </div>
+
+    <div class="calc">
+      <div>
+        <h3>Quanto custa hoje fechar o mês na planilha?</h3>
+        <p>Coloque as suas contas. É só uma estimativa, feita aqui na sua tela.</p>
+      </div>
+      <div class="calc-form">
+        <label>Horas por mês juntando planilha e montando relatório
+          <input type="number" id="c-horas" inputmode="numeric" min="0" max="300" value="12">
+        </label>
+        <label>Quanto vale uma hora sua ou de quem faz isso (R$)
+          <input type="number" id="c-valor" inputmode="decimal" min="0" max="2000" step="0.01" value="60">
+        </label>
+      </div>
+      <div class="calc-out" aria-live="polite">
+        <span>Por ano, isso dá</span>
+        <strong id="c-ano">R$ 8.640</strong>
+        <small>em horas gastas só montando relatório. Os planos começam em R$ 300, com pagamento único.</small>
+        <a class="calc-link" href="#escolha-plano">Ver qual plano resolve isso →</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 3. PROJETO REAL -->
+<section class="dark-sec" id="projeto">
+  <div class="wrap case-grid">
+    <div>
+      <span class="eyebrow">Projeto real</span>
+      <h2>Funil de vendas de uma imobiliária, do lead à escritura.</h2>
+      <p class="lead" style="margin-top:16px">A equipe acompanhava tudo em planilhas separadas por corretor. O painel juntou o funil inteiro e passou a mostrar, todo dia, onde o mês estava indo.</p>
+      <ul class="case-points">
+        <li><span>1</span><p><b>Meta do mês em destaque.</b> Quanto já foi vendido, quanto falta e quantos dias restam.</p></li>
+        <li><span>2</span><p><b>Histórico lado a lado.</b> Mês atual comparado com os anteriores, sem precisar abrir arquivo antigo.</p></li>
+        <li><span>3</span><p><b>Simulador de cenários.</b> Pessimista, padrão e otimista, com base em quantas propostas em aberto devem virar venda.</p></li>
+      </ul>
+      <p class="case-note">Nome da empresa e cidades ocultos a pedido do cliente. Os valores ao lado foram alterados.</p>
+      <div class="btn-row">
+        <a class="btn btn-cta" data-wa="Oi! Vi o painel de funil da imobiliária no site da DashUp e quero um parecido pra minha empresa." href="#escolha-plano"><svg aria-hidden="true"><use href="#i-wa"/></svg>Quero um painel assim</a>
+      </div>
+    </div>
+
+    <figure class="mock" style="margin:0;color:var(--ink)" aria-label="Painel de funil imobiliário com valores alterados">
+      <div class="mock-top">
+        <div class="mock-title">Funil comercial <small>· Imobiliária</small></div>
+        <span class="tag-ill">Valores alterados · cliente oculto</span>
+      </div>
+      <div class="mock-row" style="margin-top:0">
+        <div class="panel">
+          <h4>Funil do mês</h4>
+          <div class="funnel">
+            <div>Leads<i style="--w:100%"></i><b>640</b></div>
+            <div>Atendimentos<i style="--w:62%"></i><b>310</b></div>
+            <div>Visitas<i style="--w:36%"></i><b>118</b></div>
+            <div>Propostas<i style="--w:18%"></i><b>34</b></div>
+            <div>Vendas<i style="--w:9%"></i><b>8</b></div>
+          </div>
+        </div>
+        <div class="panel">
+          <h4>Meta do mês</h4>
+          <p style="font:600 1.6rem/1 var(--sans);color:var(--pine-deep)">8 <small style="font-size:.85rem;color:var(--muted);font-weight:400">de 12 unidades</small></p>
+          <div class="progress"><i class="c" style="--w:67%"></i></div>
+          <p style="font-size:.75rem;color:var(--muted);margin-top:8px">67% da meta · 9 dias úteis restantes</p>
+        </div>
+      </div>
+      <div class="panel" style="margin-top:10px">
+        <h4>Histórico <small>vendas por mês · — meta</small></h4>
+        <div class="bars" style="height:90px;--g:66%">
+          <i class="l" style="--h:50%"></i><i class="l" style="--h:61%"></i><i class="l" style="--h:44%"></i><i class="l" style="--h:72%"></i><i class="l" style="--h:66%"></i><i style="--h:78%"></i><i class="c" style="--h:44%"></i>
+          <span class="goal"></span>
+        </div>
+        <div class="bars-x"><span>abr</span><span>mai</span><span>jun</span><span>jul</span><span>ago</span><span>set</span><span>out</span></div>
+      </div>
+      <div class="panel" style="margin-top:10px">
+        <h4 style="align-items:center;flex-wrap:wrap">Simulador de fechamento
+          <span class="sim-tabs" role="group" aria-label="Cenário">
+            <button type="button" data-sim="p" aria-pressed="false">Pessimista</button>
+            <button type="button" data-sim="m" aria-pressed="true">Padrão</button>
+            <button type="button" data-sim="o" aria-pressed="false">Otimista</button>
+          </span>
+        </h4>
+        <div class="sim-out" aria-live="polite">
+          <div><span>Conversão das 26 propostas em aberto</span><strong data-out="conv">16%</strong></div>
+          <div><span>Vendas projetadas</span><strong data-out="vend">12</strong></div>
+          <div><span>Meta no fechamento</span><strong data-out="meta">100%</strong></div>
+        </div>
+        <div class="progress"><i data-out="bar" style="--w:100%"></i></div>
+      </div>
+    </figure>
+  </div>
+</section>
+
+<!-- 4. DEPOIMENTOS -->
+<section id="depoimentos">
+  <div class="wrap">
+    <div class="head-row">
+      <div class="section-head">
+        <span class="eyebrow">Quem já usa</span>
+        <h2>Dito por quem fechava o mês na mão.</h2>
+      </div>
+    </div>
+    <!-- Substituir pelos depoimentos reais dos clientes (primeiro nome + cargo). -->
+    <div class="carousel" data-carousel role="region" aria-roledescription="carrossel" aria-label="Depoimentos de clientes">
+      <div class="track" tabindex="0" aria-label="Depoimentos. Use as setas para navegar.">
+        <article class="quote">
+          <blockquote>Eu passava o começo de todo mês juntando planilha de vendedor. Hoje eu abro o painel de manhã, tomando café, e já sei como a gente tá.</blockquote>
+          <div class="who"><div class="avatar" aria-hidden="true">C</div><div><b>Claudemar</b><span>Empresário</span></div></div>
+        </article>
+        <article class="quote">
+          <blockquote>O que mais mudou foi a reunião de segunda. Antes era cada um com um número diferente. Agora todo mundo olha a mesma tela e a conversa anda.</blockquote>
+          <div class="who"><div class="avatar" aria-hidden="true">D</div><div><b>Danilo</b><span>Gestor comercial</span></div></div>
+        </article>
+        <article class="quote">
+          <blockquote>Achei que ia ser coisa complicada, de sistema grande. Não foi. Mandei minhas planilhas, a gente conversou no WhatsApp e veio do jeito que eu pedi.</blockquote>
+          <div class="who"><div class="avatar" aria-hidden="true">R</div><div><b>Renata</b><span>Sócia-administradora</span></div></div>
+        </article>
+        <article class="quote">
+          <blockquote>Eu não queria mais um sistema pra aprender. Queria ver o caixa e as contas da semana sem ficar abrindo arquivo. É isso que eu tenho agora.</blockquote>
+          <div class="who"><div class="avatar" aria-hidden="true">M</div><div><b>Marcos</b><span>Responsável financeiro</span></div></div>
+        </article>
+        <article class="quote">
+          <blockquote>Pedi um ajuste num indicador logo depois da entrega e resolveram rapidinho. Deu segurança de que não ia ficar na mão depois de pagar.</blockquote>
+          <div class="who"><div class="avatar" aria-hidden="true">P</div><div><b>Patrícia</b><span>Gerente administrativa</span></div></div>
+        </article>
+      </div>
+      <div class="car-nav"><span class="car-status"><span class="car-progress" aria-hidden="true"><i></i></span><span class="car-count" aria-hidden="true"></span></span><span class="car-btns">
+        <button type="button" data-prev aria-label="Depoimento anterior"><svg aria-hidden="true"><use href="#i-left"/></svg></button>
+        <button type="button" data-next aria-label="Próximo depoimento"><svg aria-hidden="true"><use href="#i-right"/></svg></button></span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 5. COMO FUNCIONA -->
+<section id="como-funciona" style="padding-top:0">
+  <div class="wrap">
+    <div class="section-head">
+      <span class="eyebrow">Como funciona</span>
+      <h2>Do primeiro “oi” ao painel funcionando, em 5 passos.</h2>
+      <p class="lead">Esse é o caminho dos painéis personalizados. No plano Pronto, de R$ 300, é mais simples: você paga no Mercado Pago, envia a sua planilha de vendas e recebe o link do painel em até 2 dias.</p>
+    </div>
+    <ol class="steps">
+      <li><h3>Chama no WhatsApp</h3><p>Conta o que você quer acompanhar e manda um exemplo das suas planilhas. Planos personalizados de R$ 500 a R$ 1.500.</p></li>
+      <li><h3>Combina prazo e escopo</h3><p>A gente responde com quais indicadores entram, o que fica de fora e em quanto tempo entrega. Tudo por escrito, antes de você pagar.</p></li>
+      <li><h3>Paga no Mercado Pago</h3><p>Pix ou cartão, pelo link de pagamento. Pagamento único, sem mensalidade.</p></li>
+      <li><h3>Recebe o painel</h3><p>Você recebe o link do painel, já com os seus dados. A partir daí ele se atualiza sozinho.</p></li>
+      <li><h3>Ajusta na garantia</h3><p>Por 7 dias após a entrega, se algo não bater com o combinado, a gente ajusta.</p></li>
+    </ol>
+    <ul class="picker receive" aria-label="O que você recebe">
+      <li>Feito do zero pra você<b>Cada painel é programado um por um, em Python. Não é template de Power BI.</b></li>
+      <li>Abre num link<b>Pelo navegador, no computador ou no celular. Sem programa pra instalar e sem licença paga.</b></li>
+      <li>Atualiza sozinho<b>O painel lê direto da fonte dos dados. Você não precisa mexer em nada pra ver o número novo.</b></li>
+    </ul>
+  </div>
+</section>
+
+<!-- 6. TIPOS DE PAINEL -->
+<section id="tipos" style="padding-top:0">
+  <div class="wrap">
+    <div class="section-head">
+      <span class="eyebrow">Tipos de painel</span>
+      <h2>Começa pela área que mais dói hoje.</h2>
+      <p class="lead">Dá pra fazer um painel por área ou juntar mais de uma no mesmo projeto. Os indicadores abaixo são pontos de partida, não regra.</p>
+    </div>
+    <div class="grid-3">
+      <article class="card type">
+        <h3>Vendas</h3>
+        <ul class="kpi-tags"><li>Faturamento</li><li>Meta por vendedor</li><li>Ticket médio</li><li>Conversão</li><li>Vendas por produto</li></ul>
+        <p class="plan-hint">Plano sugerido: <b>Pronto</b> (escopo fixo) ou <b>Personalizado</b> (seus indicadores)</p>
+      </article>
+      <article class="card type">
+        <h3>Financeiro / DRE</h3>
+        <ul class="kpi-tags"><li>Fluxo de caixa</li><li>DRE mensal</li><li>Contas a pagar e receber</li><li>Margem</li><li>Inadimplência</li></ul>
+        <p class="plan-hint">Plano sugerido: <b>Personalizado</b> ou <b>Sob Medida</b></p>
+      </article>
+      <article class="card type">
+        <h3>Estoque</h3>
+        <ul class="kpi-tags"><li>Giro</li><li>Ruptura</li><li>Curva ABC</li><li>Cobertura em dias</li><li>Produto parado</li></ul>
+        <p class="plan-hint">Plano sugerido: <b>Personalizado</b></p>
+      </article>
+      <article class="card type">
+        <h3>RH</h3>
+        <ul class="kpi-tags"><li>Headcount</li><li>Turnover</li><li>Absenteísmo</li><li>Horas extras</li><li>Custo de folha</li></ul>
+        <p class="plan-hint">Plano sugerido: <b>Personalizado</b></p>
+      </article>
+      <article class="card type">
+        <h3>Marketing</h3>
+        <ul class="kpi-tags"><li>Investimento por canal</li><li>Custo por lead</li><li>Leads gerados</li><li>Custo de aquisição</li><li>Origem das vendas</li></ul>
+        <p class="plan-hint">Plano sugerido: <b>Sob Medida com Reuniões</b></p>
+      </article>
+      <article class="card type">
+        <h3>Atendimento</h3>
+        <ul class="kpi-tags"><li>Chamados abertos</li><li>Tempo de resposta</li><li>Prazo cumprido</li><li>Motivos de contato</li><li>Satisfação</li></ul>
+        <p class="plan-hint">Plano sugerido: <b>Personalizado</b></p>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- 7. CONFIANÇA -->
+<section id="confianca" style="padding-top:0">
+  <div class="wrap">
+    <div class="section-head">
+      <span class="eyebrow">Sem surpresa</span>
+      <h2>Você sabe o que vai receber antes de pagar.</h2>
+    </div>
+    <div class="trust">
+      <article class="card">
+        <div class="icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3l8 3v6c0 4.5-3.4 8.2-8 9-4.6-.8-8-4.5-8-9V6z"/><path d="M8.5 12l2.5 2.5 4.5-5"/></svg></div>
+        <h3>Garantia de 7 dias após a entrega</h3>
+        <p style="margin-top:10px">Recebeu o painel e algo não bate com o que foi combinado? Você tem 7 dias pra avisar e a gente ajusta. No Pronto, o combinado é o que está descrito no plano: painel com vendas, ticket e evolução. Nos personalizados, é o escopo acertado no WhatsApp. Pedido novo é conversado à parte.</p>
+      </article>
+      <article class="card">
+        <div class="icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="6" width="18" height="13" rx="2"/><path d="M3 10h18M7 15h4"/></svg></div>
+        <h3>Pagamento pelo Mercado Pago</h3>
+        <p style="margin-top:10px">Pix ou cartão, direto no ambiente do Mercado Pago. A DashUp não vê nem guarda os dados do seu cartão.</p>
+      </article>
+      <article class="card">
+        <div class="icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 12h12M12 6l6 6-6 6"/><circle cx="4" cy="12" r="1.5"/></svg></div>
+        <h3>Como a entrega acontece</h3>
+        <ul class="flow">
+          <li>Pagamento confirmado no Mercado Pago</li>
+          <li>Plano Pronto: você envia a planilha de vendas e recebe o link em até 2 dias</li>
+          <li>Personalizados: você envia os dados e a gente monta no prazo combinado</li>
+          <li>Entrega do link do painel, com instruções de uso</li>
+          <li>7 dias pra pedir ajuste no que foi combinado</li>
+        </ul>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- 8. PLANOS -->
+<section id="planos" style="padding-top:0">
+  <div class="wrap">
+    <div class="section-head">
+      <span class="eyebrow">Planos</span>
+      <h2>Pagamento único. Sem mensalidade.</h2>
+      <p class="lead">Nenhum dos quatro planos tem cobrança mensal. Se quiser manutenção depois da entrega, ela aparece como opcional no checkout.</p>
+    </div>
+    <div class="plans" id="escolha-plano">
+      <article class="plan">
+        <h3>Pronto</h3>
+        <p class="desc">Painel de vendas feito com os seus dados, com escopo fixo e sem reunião.</p>
+        <p class="price"><small>R$</small>300</p>
+        <p class="price-note">pagamento único</p>
+        <ul>
+          <li><svg aria-hidden="true"><use href="#i-check"/></svg>Painel de vendas feito do zero com os seus dados</li>
+          <li><svg aria-hidden="true"><use href="#i-check"/></svg>Vendas, ticket médio e evolução mês a mês</li>
+          <li><svg aria-hidden="true"><use href="#i-check"/></svg>Link do painel no seu e-mail em até 2 dias</li>
+          <li><svg aria-hidden="true"><use href="#i-check"/></svg>Compra direta, sem reunião</li>
+        </ul>
+        <a class="see-model" href="#modelo-pronto">Ver como é o painel ↓</a>
+        <a class="btn btn-dark btn-block" data-checkout href="#escolha-plano">Comprar o Pronto · R$ 300</a>
+      </article>
+      <article class="plan featured">
+        <span class="badge">RECOMENDADO</span>
+        <h3>Personalizado</h3>
+        <p class="desc">Painel montado com os indicadores e os dados da sua empresa.</p>
+        <p class="price"><small>R$</small>500</p>
+        <p class="price-note">pagamento único</p>
+        <ul>
+          <li><svg aria-hidden="true"><use href="#i-check"/></svg>Indicadores da sua empresa: vendas, financeiro, estoque, RH…</li>
+          <li><svg aria-hidden="true"><use href="#i-check"/></svg>Dados de planilhas (Excel, Google Sheets) ou CSV</li>
+          <li><svg aria-hidden="true"><use href="#i-check"/></svg>Filtros por período, vendedor, produto ou unidade</li>
+          <li><svg aria-hidden="true"><use href="#i-check"/></svg>Cores e logo da sua empresa</li>
+          <li><svg aria-hidden="true"><use href="#i-check"/></svg>Prazo e escopo combinados antes de pagar</li>
+          <li><svg aria-hidden="true"><use href="#i-check"/></svg>Orientação de uso na entrega</li>
+        </ul>
+        <a class="btn btn-cta btn-block" data-wa="Oi! Tenho interesse no plano Personalizado (R$ 500) da DashUp." href="#escolha-plano"><svg aria-hidden="true"><use href="#i-wa"/></svg>Combinar no WhatsApp</a>
+      </article>
+      <article class="plan">
+        <h3>Sob Medida com Reuniões</h3>
+        <p class="desc">Painel ligado às fontes de dados da sua empresa, desenhado junto com você.</p>
+        <p class="price"><small>R$</small>1.000</p>
+        <p class="price-note">pagamento único</p>
+        <ul>
+          <li class="inherit">Tudo do Personalizado, mais:</li>
+          <li><svg aria-hidden="true"><use href="#i-check"/></svg>Integração com planilhas, banco de dados, ERP e outros sistemas</li>
+          <li><svg aria-hidden="true"><use href="#i-check"/></svg>Dados direto do sistema, sem exportar planilha</li>
+          <li><svg aria-hidden="true"><use href="#i-check"/></svg>Várias áreas no mesmo painel</li>
+          <li><svg aria-hidden="true"><use href="#i-check"/></svg>Regras de cálculo: metas, comissões, centros de custo</li>
+          <li><svg aria-hidden="true"><use href="#i-check"/></svg>Reunião de descoberta</li>
+          <li><svg aria-hidden="true"><use href="#i-check"/></svg>Reunião de entrega com treinamento</li>
+        </ul>
+        <a class="btn btn-ghost btn-block" data-wa="Oi! Tenho interesse no plano Sob Medida com Reuniões (R$ 1.000) da DashUp." href="#escolha-plano"><svg aria-hidden="true"><use href="#i-wa"/></svg>Combinar no WhatsApp</a>
+      </article>
+      <article class="plan">
+        <h3>Premium + Acompanhamento</h3>
+        <p class="desc">A gente do seu lado nos 2 primeiros meses pra transformar número em decisão.</p>
+        <p class="price"><small>R$</small>1.500</p>
+        <p class="price-note">pagamento único</p>
+        <ul>
+          <li class="inherit">Tudo do Sob Medida, mais:</li>
+          <li><svg aria-hidden="true"><use href="#i-check"/></svg>2 meses de acompanhamento após a entrega</li>
+          <li><svg aria-hidden="true"><use href="#i-check"/></svg>Manutenção garantida nos 2 meses</li>
+          <li><svg aria-hidden="true"><use href="#i-check"/></svg>Reunião mensal de leitura dos números</li>
+          <li><svg aria-hidden="true"><use href="#i-check"/></svg>Ajustes e novos indicadores no período</li>
+          <li><svg aria-hidden="true"><use href="#i-check"/></svg>Revisão final com próximos indicadores</li>
+          <li><svg aria-hidden="true"><use href="#i-check"/></svg>Atendimento prioritário no WhatsApp</li>
+        </ul>
+        <a class="btn btn-ghost btn-block" data-wa="Oi! Tenho interesse no plano Premium + Acompanhamento (R$ 1.500) da DashUp." href="#escolha-plano"><svg aria-hidden="true"><use href="#i-wa"/></svg>Combinar no WhatsApp</a>
+      </article>
+    </div>
+    <p class="plans-note"><b>Em todos os planos:</b> pagamento único, sem mensalidade · Garantia de 7 dias após a entrega · Pix ou cartão no Mercado Pago · Manutenção mensal opcional no checkout</p>
+
+    <!-- O que vem no Pronto -->
+    <div class="pronto" id="modelo-pronto">
+      <div class="pronto-text">
+        <span class="eyebrow">Plano Pronto · R$ 300</span>
+        <h3 class="pronto-title">É isso que você recebe.</h3>
+        <p class="lead" style="font-size:1rem;margin-top:12px">Um painel de vendas feito do zero com os seus dados: quanto vendeu, qual o ticket e como as vendas evoluem mês a mês. Você abre por um link e ele se atualiza sozinho. O escopo é fixo, e é por isso que custa R$ 300 e fica pronto em até 2 dias.</p>
+        <div class="fit">
+          <div>
+            <h4>É pra você se…</h4>
+            <ul>
+              <li>Quer parar de montar o relatório de vendas na mão</li>
+              <li>Precisa ver vendas, ticket e evolução num lugar só</li>
+              <li>Prefere começar hoje, sem reunião nem negociação</li>
+            </ul>
+          </div>
+          <div>
+            <h4>Não é pra você se…</h4>
+            <ul class="no">
+              <li>Precisa de caixa, DRE, estoque ou outro indicador próprio</li>
+              <li>Quer o painel com a cara e as regras da sua empresa</li>
+              <li>Quer conversar sobre o escopo antes de pagar</li>
+            </ul>
+            <p class="fit-alt">Nesses casos, o caminho é o <a href="#escolha-plano">Personalizado, por R$ 500</a>.</p>
+          </div>
+        </div>
+        <div class="btn-row" style="margin-top:24px">
+          <a class="btn btn-cta" data-checkout href="#escolha-plano">Comprar o Pronto · R$ 300 <svg aria-hidden="true"><use href="#i-arrow"/></svg></a>
+        </div>
+      </div>
+
+      <figure class="mock" style="margin:0" aria-label="Exemplo do painel de vendas do plano Pronto, com números fictícios">
+        <div class="mock-top">
+          <div class="mock-title">Painel de vendas <small>· plano Pronto</small></div>
+          <span class="tag-ill">Modelo ilustrativo · números fictícios</span>
+        </div>
+        <div class="kpis k4">
+          <div class="kpi dark"><span>Vendas no mês</span><strong>R$ 96,4 mil</strong></div>
+          <div class="kpi"><span>Nº de vendas</span><strong>78</strong></div>
+          <div class="kpi"><span>Ticket médio</span><strong>R$ 1.236</strong></div>
+          <div class="kpi"><span>vs. mês anterior</span><strong>+ 6,2%</strong></div>
+        </div>
+        <div class="panel" style="margin-top:10px">
+          <h4>Evolução das vendas <small>últimos 12 meses</small></h4>
+          <div class="bars">
+            <i class="l" style="--h:42%"></i><i class="l" style="--h:48%"></i><i class="l" style="--h:45%"></i><i class="l" style="--h:56%"></i><i class="l" style="--h:52%"></i><i class="l" style="--h:61%"></i><i class="l" style="--h:58%"></i><i class="l" style="--h:66%"></i><i class="l" style="--h:63%"></i><i class="l" style="--h:70%"></i><i style="--h:74%"></i><i class="c" style="--h:79%"></i>
+          </div>
+          <div class="bars-x"><span>nov</span><span>dez</span><span>jan</span><span>fev</span><span>mar</span><span>abr</span><span>mai</span><span>jun</span><span>jul</span><span>ago</span><span>set</span><span>out</span></div>
+        </div>
+        <div class="mock-row">
+          <div class="panel">
+            <h4>Ticket médio por mês</h4>
+            <ul class="list">
+              <li>Agosto <b>R$ 1.180</b><span class="bar"><i style="--w:86%"></i></span></li>
+              <li>Setembro <b>R$ 1.205</b><span class="bar"><i style="--w:89%"></i></span></li>
+              <li>Outubro <b>R$ 1.236</b><span class="bar"><i class="c" style="--w:92%"></i></span></li>
+            </ul>
+          </div>
+          <div class="panel">
+            <h4>Acumulado no ano</h4>
+            <p style="font:600 1.4rem/1.1 var(--sans);color:var(--pine-deep)">R$ 812 mil</p>
+            <p style="font-size:.75rem;color:var(--muted);margin-top:6px">642 vendas de janeiro a outubro</p>
+          </div>
+        </div>
+      </figure>
+    </div>
+  </div>
+</section>
+
+<!-- 9. MODELOS POR NEGÓCIO -->
+<section id="modelos" style="padding-top:0">
+  <div class="wrap">
+    <div class="head-row">
+      <div class="section-head">
+        <span class="eyebrow">Modelos por negócio</span>
+        <h2>Cada negócio olha pra números diferentes.</h2>
+        <p class="lead">Alguns exemplos do que dá pra montar. Todos com dados simulados.</p>
+      </div>
+    </div>
+    <div class="carousel" data-carousel role="region" aria-roledescription="carrossel" aria-label="Modelos por negócio">
+      <div class="track" tabindex="0" aria-label="Modelos de painel por tipo de negócio. Use as setas para navegar.">
+        <article class="model">
+          <header><h3>Academia</h3><span class="tag-ill">Dados simulados</span></header>
+          <div class="kpis"><div class="kpi"><span>Alunos ativos</span><strong>412</strong></div><div class="kpi"><span>Cancelamentos</span><strong>3,1%</strong></div><div class="kpi"><span>Receita do mês</span><strong>R$ 58 mil</strong></div></div>
+          <div class="panel"><h4>Novas matrículas</h4><div class="bars"><i class="l" style="--h:40%"></i><i class="l" style="--h:72%"></i><i class="l" style="--h:65%"></i><i class="l" style="--h:52%"></i><i class="l" style="--h:46%"></i><i style="--h:58%"></i><i class="c" style="--h:70%"></i></div></div>
+        </article>
+        <article class="model">
+          <header><h3>Agência</h3><span class="tag-ill">Dados simulados</span></header>
+          <div class="kpis"><div class="kpi"><span>Projetos ativos</span><strong>23</strong></div><div class="kpi"><span>Horas no mês</span><strong>1.140</strong></div><div class="kpi"><span>Margem</span><strong>31%</strong></div></div>
+          <div class="panel"><h4>Receita por cliente</h4><ul class="list"><li>Cliente 1 <b>R$ 18 mil</b><span class="bar"><i style="--w:90%"></i></span></li><li>Cliente 2 <b>R$ 12 mil</b><span class="bar"><i style="--w:60%"></i></span></li><li>Cliente 3 <b>R$ 7 mil</b><span class="bar"><i class="c" style="--w:35%"></i></span></li></ul></div>
+        </article>
+        <article class="model">
+          <header><h3>Imobiliária</h3><span class="tag-ill">Dados simulados</span></header>
+          <div class="kpis"><div class="kpi"><span>Leads no mês</span><strong>640</strong></div><div class="kpi"><span>Visitas</span><strong>118</strong></div><div class="kpi"><span>VGV vendido</span><strong>R$ 3,2 mi</strong></div></div>
+          <div class="panel"><h4>Vendas x meta</h4><div class="bars" style="--g:64%"><i class="l" style="--h:50%"></i><i class="l" style="--h:61%"></i><i class="l" style="--h:44%"></i><i class="l" style="--h:72%"></i><i class="l" style="--h:66%"></i><i style="--h:78%"></i><i class="c" style="--h:44%"></i><span class="goal"></span></div></div>
+        </article>
+        <article class="model">
+          <header><h3>Transportadora</h3><span class="tag-ill">Dados simulados</span></header>
+          <div class="kpis"><div class="kpi"><span>Entregas no prazo</span><strong>94%</strong></div><div class="kpi"><span>Custo por km</span><strong>R$ 4,82</strong></div><div class="kpi"><span>Fretes no mês</span><strong>1.286</strong></div></div>
+          <div class="panel"><h4>Fretes por semana</h4><div class="bars"><i class="l" style="--h:62%"></i><i class="l" style="--h:70%"></i><i class="l" style="--h:58%"></i><i class="l" style="--h:81%"></i><i class="l" style="--h:74%"></i><i style="--h:86%"></i><i class="c" style="--h:52%"></i></div></div>
+        </article>
+        <article class="model">
+          <header><h3>DRE</h3><span class="tag-ill">Dados simulados</span></header>
+          <div class="kpis"><div class="kpi"><span>Receita líquida</span><strong>R$ 420 mil</strong></div><div class="kpi"><span>Margem bruta</span><strong>38%</strong></div><div class="kpi"><span>Resultado</span><strong>R$ 46 mil</strong></div></div>
+          <div class="panel"><h4>Do faturamento ao lucro</h4><ul class="list"><li>Receita <b>100%</b><span class="bar"><i style="--w:100%"></i></span></li><li>Custos <b>62%</b><span class="bar"><i class="c" style="--w:62%"></i></span></li><li>Despesas <b>27%</b><span class="bar"><i class="c" style="--w:27%"></i></span></li><li>Resultado <b>11%</b><span class="bar"><i style="--w:11%"></i></span></li></ul></div>
+        </article>
+        <article class="model">
+          <header><h3>RH</h3><span class="tag-ill">Dados simulados</span></header>
+          <div class="kpis"><div class="kpi"><span>Colaboradores</span><strong>86</strong></div><div class="kpi"><span>Turnover</span><strong>2,4%</strong></div><div class="kpi"><span>Absenteísmo</span><strong>3,8%</strong></div></div>
+          <div class="panel"><h4>Horas extras por mês</h4><div class="bars"><i class="l" style="--h:55%"></i><i class="l" style="--h:48%"></i><i class="l" style="--h:66%"></i><i class="l" style="--h:72%"></i><i class="l" style="--h:60%"></i><i style="--h:44%"></i><i class="c" style="--h:38%"></i></div></div>
+        </article>
+        <article class="model">
+          <header><h3>Varejo</h3><span class="tag-ill">Dados simulados</span></header>
+          <div class="kpis"><div class="kpi"><span>Vendas no mês</span><strong>R$ 96 mil</strong></div><div class="kpi"><span>Giro de estoque</span><strong>2,7x</strong></div><div class="kpi"><span>Ruptura</span><strong>4%</strong></div></div>
+          <div class="panel"><h4>Curva ABC</h4><ul class="list"><li>Classe A <b>71%</b><span class="bar"><i style="--w:71%"></i></span></li><li>Classe B <b>21%</b><span class="bar"><i style="--w:21%"></i></span></li><li>Classe C <b>8%</b><span class="bar"><i class="c" style="--w:8%"></i></span></li></ul></div>
+        </article>
+      </div>
+      <div class="car-nav"><span class="car-status"><span class="car-progress" aria-hidden="true"><i></i></span><span class="car-count" aria-hidden="true"></span></span><span class="car-btns">
+        <button type="button" data-prev aria-label="Modelo anterior"><svg aria-hidden="true"><use href="#i-left"/></svg></button>
+        <button type="button" data-next aria-label="Próximo modelo"><svg aria-hidden="true"><use href="#i-right"/></svg></button></span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 10. FAQ -->
+<section id="faq" style="padding-top:0">
+  <div class="wrap faq-grid">
+    <div>
+      <span class="eyebrow">Dúvidas</span>
+      <h2>Perguntas que a gente mais ouve.</h2>
+      <p class="lead" style="margin-top:14px">Não achou a sua? Manda no WhatsApp, a gente responde antes de você decidir qualquer coisa.</p>
+      <div class="btn-row" style="margin-top:24px"><a class="btn btn-ghost" data-wa="Oi! Tenho uma dúvida sobre os painéis da DashUp." href="#escolha-plano"><svg aria-hidden="true"><use href="#i-wa"/></svg>Tirar dúvida</a></div>
+    </div>
+    <div class="faq">
+      <details name="faq">
+        <summary>De onde vêm os dados do painel?</summary>
+        <p>Das planilhas que você já usa (Excel ou Google Sheets), de arquivos CSV ou de relatórios exportados do seu ERP ou sistema de gestão. Se o seu sistema exporta, dá pra usar. A ligação direta com banco de dados, ERP ou outros sistemas entra a partir do plano Sob Medida.</p>
+      </details>
+      <details name="faq">
+        <summary>Como eu pago?</summary>
+        <p>Pelo Mercado Pago, com Pix ou cartão. O pagamento é feito no ambiente do Mercado Pago, e a DashUp não tem acesso aos dados do seu cartão.</p>
+      </details>
+      <details name="faq">
+        <summary>O que acontece depois que eu pago?</summary>
+        <p>No plano Pronto, você manda a sua planilha de vendas e recebe no e-mail o link do painel em até 2 dias. Não tem reunião. Nos personalizados, a gente pede os arquivos com os seus dados e começa a montar dentro do prazo que já foi combinado no WhatsApp.</p>
+      </details>
+      <details name="faq">
+        <summary>E se o painel não bater com o que foi combinado?</summary>
+        <p>Você tem 7 dias depois da entrega pra avisar. A gente ajusta o que estiver diferente do combinado: no Pronto, o que está descrito no plano; nos personalizados, o escopo acertado no WhatsApp. Indicadores ou áreas novas, fora do que foi acertado, são conversados à parte.</p>
+      </details>
+      <details name="faq">
+        <summary>Qual a diferença entre o Pronto e o Personalizado?</summary>
+        <p>O Pronto (R$ 300) é um painel de vendas feito com os seus dados, mas com escopo fixo: vendas, ticket e evolução. O Personalizado (R$ 500) é montado com os indicadores da sua empresa, como caixa, estoque ou DRE, e você combina prazo e escopo no WhatsApp antes de pagar.</p>
+      </details>
+      <details name="faq">
+        <summary>Tem mensalidade? E suporte depois da entrega?</summary>
+        <p>Os quatro planos são de pagamento único, sem mensalidade. Se quiser manutenção mensal depois da entrega, ela aparece como opcional no checkout. Você contrata só se fizer sentido.</p>
+      </details>
+      <details name="faq">
+        <summary>Em que programa o painel funciona? Preciso instalar algo?</summary>
+        <p>Não precisa instalar nada nem pagar licença de software. Cada painel é programado do zero, um por um, em Python. Você acessa por um link no navegador, no computador ou no celular, e os números se atualizam sozinhos a partir da fonte dos dados.</p>
+      </details>
+      <details name="faq">
+        <summary>Qual é o prazo de entrega?</summary>
+        <p>No plano Pronto, até 2 dias depois que você envia a planilha de vendas. O link chega por e-mail. Nos personalizados, o prazo depende do escopo e fica combinado por escrito no WhatsApp antes de você pagar.</p>
+      </details>
+      <details name="faq">
+        <summary>Posso conversar antes de comprar?</summary>
+        <p>Pode e deve, principalmente se estiver em dúvida entre os planos. Chama no WhatsApp, conta o que você quer acompanhar e a gente indica o caminho.</p>
+      </details>
+      <details name="faq">
+        <summary>Serve pra empresa pequena?</summary>
+        <p>Serve. A DashUp foi pensada pra pequenas e médias empresas. Se hoje você controla vendas ou caixa numa planilha, já tem o suficiente pra começar.</p>
+      </details>
+    </div>
+  </div>
+</section>
+
+<!-- 11. CTA FINAL -->
+<section style="padding-top:0;padding-bottom:0">
+  <div class="wrap">
+    <div class="final">
+      <div class="final-bars" aria-hidden="true"><i style="height:90px"></i><i style="height:140px"></i><i style="height:200px"></i></div>
+      <h2>O próximo mês não precisa fechar na planilha.</h2>
+      <p>Comece pelo painel de vendas de R$ 300, pronto em até 2 dias, ou chame a gente pra montar um do seu jeito.</p>
+      <div class="btn-row">
+        <a class="btn btn-cta" data-checkout href="#escolha-plano">Comprar o Pronto · R$ 300 <svg aria-hidden="true"><use href="#i-arrow"/></svg></a>
+        <a class="btn btn-ghost" data-wa="Oi! Quero montar um painel pra minha empresa com a DashUp." href="#escolha-plano"><svg aria-hidden="true"><use href="#i-wa"/></svg>Falar no WhatsApp</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<footer class="site-footer">
+  <div class="wrap footer-inner">
+    <a class="logo" href="#topo" aria-label="DashUp, voltar ao topo"><svg aria-hidden="true"><use href="#logo"/></svg>DashUp</a>
+    <p>© <span id="ano">2026</span> DashUp · Painéis de BI para pequenas e médias empresas.<br>Painéis exibidos nesta página são modelos ilustrativos com números fictícios.</p>
+  </div>
+</footer>
+
+<div class="mbar" aria-label="Atalhos">
+  <a class="btn btn-cta" href="#escolha-plano">Ver planos e preços</a>
+  <a class="btn btn-wa" data-wa="Oi! Vi o site da DashUp e quero saber mais." href="#escolha-plano" aria-label="Falar no WhatsApp"><svg aria-hidden="true"><use href="#i-wa"/></svg></a>
+</div>
+
+<script>
+/* ===== Configuração: troque pelos dados reais ===== */
+const CONFIG = {
+  whatsapp: "5500000000000",                 // DDI + DDD + número, só dígitos
+  checkout300: "https://mpago.la/SEU-LINK"   // link de pagamento do plano Pronto (R$ 300)
+};
+
+document.querySelectorAll("[data-wa]").forEach(a => {
+  a.href = "https://wa.me/" + CONFIG.whatsapp + "?text=" + encodeURIComponent(a.dataset.wa);
+  a.target = "_blank"; a.rel = "noopener";
+});
+document.querySelectorAll("[data-checkout]").forEach(a => {
+  a.href = CONFIG.checkout300;
+  a.target = "_blank"; a.rel = "noopener";
+});
+
+document.getElementById("ano").textContent = new Date().getFullYear();
+
+// Menu mobile
+const menuBtn = document.querySelector(".menu-btn");
+const nav = document.getElementById("menu");
+const setMenu = open => {
+  nav.classList.toggle("open", open);
+  menuBtn.setAttribute("aria-expanded", open);
+  menuBtn.setAttribute("aria-label", open ? "Fechar menu" : "Abrir menu");
+};
+menuBtn.addEventListener("click", () => setMenu(!nav.classList.contains("open")));
+nav.querySelectorAll("a").forEach(a => a.addEventListener("click", () => setMenu(false)));
+document.addEventListener("keydown", e => { if (e.key === "Escape") setMenu(false); });
+
+// Destaca no menu a seção que está na tela
+const navLinks = [...nav.querySelectorAll("a")];
+const sectionSpy = new IntersectionObserver(entries => entries.forEach(e => {
+  if (!e.isIntersecting) return;
+  navLinks.forEach(a => a.setAttribute("aria-current", a.getAttribute("href") === "#" + e.target.id));
+}), { rootMargin: "-45% 0px -50% 0px" });
+navLinks.forEach(a => {
+  const s = document.querySelector(a.getAttribute("href"));
+  if (s) sectionSpy.observe(s);
+});
+
+// Revela blocos ao rolar, com leve escalonamento dentro de cada grade
+const revealGroups = [".section-head", ".hero .mock", ".case-grid > *", ".grid-4 > *", ".steps > li", ".grid-3 > *", ".trust > *", ".picker", ".plans > *", ".calc", ".pronto", ".carousel", ".faq-grid > *", ".final"];
+document.querySelectorAll(revealGroups.join(",")).forEach(el => {
+  el.classList.add("rv");
+  const i = [...el.parentElement.children].indexOf(el);
+  if (i > 0) el.style.setProperty("--d", Math.min(i, 5) * 0.07 + "s");
+});
+const revealer = new IntersectionObserver(entries => entries.forEach(e => {
+  if (!e.isIntersecting) return;
+  const el = e.target;
+  el.classList.add("in");
+  revealer.unobserve(el);
+  // depois da animação, libera o elemento (hover e transições voltam ao normal)
+  setTimeout(() => { el.classList.remove("rv", "in"); el.style.removeProperty("--d"); }, 1400);
+}), { rootMargin: "0px 0px -8% 0px" });
+document.querySelectorAll(".rv").forEach(el => revealer.observe(el));
+
+// Borda do header ao rolar
+const header = document.querySelector(".site-header");
+const onScroll = () => header.classList.toggle("scrolled", window.scrollY > 8);
+window.addEventListener("scroll", onScroll, { passive: true }); onScroll();
+
+// Barra fixa no mobile: aparece depois que os botões do hero saem da tela e some nos planos e no CTA final
+const mbar = document.querySelector(".mbar");
+const hideBarAt = [document.querySelector(".hero .btn-row"), document.querySelector(".plans"), document.querySelector(".pronto"), document.querySelector(".final")];
+const barHiders = new Set([hideBarAt[0]]);
+const barSpy = new IntersectionObserver(entries => {
+  entries.forEach(e => e.isIntersecting ? barHiders.add(e.target) : barHiders.delete(e.target));
+  mbar.classList.toggle("show", barHiders.size === 0);
+});
+hideBarAt.forEach(el => barSpy.observe(el));
+
+// Carrosséis
+document.querySelectorAll("[data-carousel]").forEach(c => {
+  const track = c.querySelector(".track");
+  const prev = c.querySelector("[data-prev]");
+  const next = c.querySelector("[data-next]");
+  const step = () => track.firstElementChild.getBoundingClientRect().width + 16;
+  const bar = c.querySelector(".car-progress i");
+  const count = c.querySelector(".car-count");
+  const items = [...track.children];
+  items.forEach((el, i) => {
+    el.setAttribute("role", "group");
+    el.setAttribute("aria-roledescription", "slide");
+    el.setAttribute("aria-label", (i + 1) + " de " + items.length);
+  });
+  const update = () => {
+    prev.disabled = track.scrollLeft < 4;
+    next.disabled = track.scrollLeft + track.clientWidth >= track.scrollWidth - 4;
+    bar.style.setProperty("--p", Math.min(100, (track.scrollLeft + track.clientWidth) / track.scrollWidth * 100) + "%");
+    const first = Math.round(track.scrollLeft / step()) + 1;
+    const last = Math.min(items.length, first + Math.max(1, Math.round(track.clientWidth / step())) - 1);
+    count.textContent = (first === last ? first : first + "–" + last) + " de " + items.length;
+  };
+  // Arrastar com o mouse no desktop (no toque, a rolagem nativa já resolve)
+  let dragX = null, dragLeft = 0, moved = false;
+  track.addEventListener("pointerdown", e => {
+    if (e.pointerType !== "mouse") return;
+    dragX = e.clientX; dragLeft = track.scrollLeft; moved = false;
+    track.classList.add("dragging");
+  });
+  window.addEventListener("pointermove", e => {
+    if (dragX === null) return;
+    if (Math.abs(e.clientX - dragX) > 4) moved = true;
+    track.scrollLeft = dragLeft - (e.clientX - dragX);
+  });
+  window.addEventListener("pointerup", () => {
+    if (dragX === null) return;
+    dragX = null;
+    track.classList.remove("dragging");
+    // devolve o encaixe ao card mais próximo
+    track.scrollTo({ left: Math.round(track.scrollLeft / step()) * step(), behavior: "smooth" });
+  });
+  track.addEventListener("click", e => { if (moved) { e.preventDefault(); e.stopPropagation(); } }, true);
+  track.addEventListener("keydown", e => {
+    if (e.key === "ArrowRight") { e.preventDefault(); next.click(); }
+    if (e.key === "ArrowLeft") { e.preventDefault(); prev.click(); }
+  });
+  prev.addEventListener("click", () => track.scrollBy({ left: -step(), behavior: "smooth" }));
+  next.addEventListener("click", () => track.scrollBy({ left: step(), behavior: "smooth" }));
+  track.addEventListener("scroll", update, { passive: true });
+  window.addEventListener("resize", update);
+  update();
+});
+
+// Planos: mostra os 4 primeiros itens e o resto num "ver tudo"
+document.querySelectorAll(".plan ul").forEach(ul => {
+  const items = [...ul.querySelectorAll("li:not(.inherit)")];
+  if (items.length <= 4) return;
+  const extra = items.slice(4);
+  extra.forEach(li => li.classList.add("extra"));
+  const btn = document.createElement("button");
+  btn.type = "button";
+  btn.className = "more";
+  const label = () => ul.classList.contains("open") ? "Mostrar menos" : `Ver tudo que inclui (+${extra.length})`;
+  btn.textContent = label();
+  btn.setAttribute("aria-expanded", "false");
+  btn.addEventListener("click", () => {
+    ul.classList.toggle("open");
+    btn.textContent = label();
+    btn.setAttribute("aria-expanded", ul.classList.contains("open"));
+  });
+  ul.after(btn);
+});
+
+// Calculadora: custo anual das horas gastas montando relatório
+const brl = n => "R$ " + Math.round(n).toLocaleString("pt-BR");
+const calcUpdate = () => {
+  const h = Math.min(300, Math.max(0, +document.getElementById("c-horas").value || 0));
+  const v = Math.min(2000, Math.max(0, +document.getElementById("c-valor").value || 0));
+  document.getElementById("c-ano").textContent = brl(h * v * 12);
+};
+["c-horas", "c-valor"].forEach(id => document.getElementById(id).addEventListener("input", calcUpdate));
+calcUpdate();
+
+// Simulador do projeto imobiliário (valores ilustrativos)
+const SIM = {
+  // 8 vendas fechadas + 26 propostas em aberto (34 − 8) × conversão; meta de 12
+  p: { conv: "12%", vend: "11", meta: 92 },
+  m: { conv: "16%", vend: "12", meta: 100 },
+  o: { conv: "24%", vend: "14", meta: 117 }
+};
+const simButtons = document.querySelectorAll("[data-sim]");
+simButtons.forEach(b => b.addEventListener("click", () => {
+  const s = SIM[b.dataset.sim];
+  simButtons.forEach(x => x.setAttribute("aria-pressed", x === b));
+  document.querySelector('[data-out="conv"]').textContent = s.conv;
+  document.querySelector('[data-out="vend"]').textContent = s.vend;
+  document.querySelector('[data-out="meta"]').textContent = s.meta + "%";
+  const bar = document.querySelector('[data-out="bar"]');
+  bar.style.setProperty("--w", Math.min(s.meta, 100) + "%");
+  bar.classList.toggle("c", s.meta < 100);
+}));
+</script>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {"@type":"Question","name":"De onde vêm os dados do painel?","acceptedAnswer":{"@type":"Answer","text":"Das planilhas que você já usa (Excel ou Google Sheets), de arquivos CSV ou de relatórios exportados do seu ERP ou sistema de gestão. Se o seu sistema exporta, dá pra usar. A ligação direta com banco de dados, ERP ou outros sistemas entra a partir do plano Sob Medida."}},
+    {"@type":"Question","name":"Como eu pago?","acceptedAnswer":{"@type":"Answer","text":"Pelo Mercado Pago, com Pix ou cartão. O pagamento é feito no ambiente do Mercado Pago, e a DashUp não tem acesso aos dados do seu cartão."}},
+    {"@type":"Question","name":"O que acontece depois que eu pago?","acceptedAnswer":{"@type":"Answer","text":"No plano Pronto, você manda a sua planilha de vendas e recebe no e-mail o link do painel em até 2 dias. Não tem reunião. Nos personalizados, a gente pede os arquivos com os seus dados e começa a montar dentro do prazo que já foi combinado no WhatsApp."}},
+    {"@type":"Question","name":"E se o painel não bater com o que foi combinado?","acceptedAnswer":{"@type":"Answer","text":"Você tem 7 dias depois da entrega pra avisar. A gente ajusta o que estiver diferente do combinado: no Pronto, o que está descrito no plano; nos personalizados, o escopo acertado no WhatsApp. Indicadores ou áreas novas, fora do que foi acertado, são conversados à parte."}},
+    {"@type":"Question","name":"Qual a diferença entre o Pronto e o Personalizado?","acceptedAnswer":{"@type":"Answer","text":"O Pronto (R$ 300) é um painel de vendas feito com os seus dados, mas com escopo fixo: vendas, ticket e evolução. O Personalizado (R$ 500) é montado com os indicadores da sua empresa, como caixa, estoque ou DRE, e você combina prazo e escopo no WhatsApp antes de pagar."}},
+    {"@type":"Question","name":"Tem mensalidade? E suporte depois da entrega?","acceptedAnswer":{"@type":"Answer","text":"Os quatro planos são de pagamento único, sem mensalidade. Se quiser manutenção mensal depois da entrega, ela aparece como opcional no checkout. Você contrata só se fizer sentido."}},
+    {"@type":"Question","name":"Em que programa o painel funciona? Preciso instalar algo?","acceptedAnswer":{"@type":"Answer","text":"Não precisa instalar nada nem pagar licença de software. Cada painel é programado do zero, um por um, em Python. Você acessa por um link no navegador, no computador ou no celular, e os números se atualizam sozinhos a partir da fonte dos dados."}},
+    {"@type":"Question","name":"Qual é o prazo de entrega?","acceptedAnswer":{"@type":"Answer","text":"No plano Pronto, até 2 dias depois que você envia a planilha de vendas. O link chega por e-mail. Nos personalizados, o prazo depende do escopo e fica combinado por escrito no WhatsApp antes de você pagar."}},
+    {"@type":"Question","name":"Posso conversar antes de comprar?","acceptedAnswer":{"@type":"Answer","text":"Pode e deve, principalmente se estiver em dúvida entre os planos. Chama no WhatsApp, conta o que você quer acompanhar e a gente indica o caminho."}},
+    {"@type":"Question","name":"Serve pra empresa pequena?","acceptedAnswer":{"@type":"Answer","text":"Serve. A DashUp foi pensada pra pequenas e médias empresas. Se hoje você controla vendas ou caixa numa planilha, já tem o suficiente pra começar."}}
+  ]
+}
+</script>
+</body>
+</html>
